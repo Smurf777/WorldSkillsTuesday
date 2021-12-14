@@ -1,0 +1,57 @@
+package application;
+
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class SampleController {
+   @FXML
+   private TextField tittel;
+   private Stage stage;
+   private Scene scene;
+   private Parent root;
+   private Button button;
+
+   @FXML
+   public void onClickMethod(){
+       button.setText("Thanks!");
+   }
+   @FXML
+   public void swichToScene1 (ActionEvent event) throws IOException {
+      Parent root = FXMLLoader.load(getClass().getResource("Sample.fxml"));
+      stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+      scene = new Scene(root);
+      stage.setScene(scene);
+      stage.show();
+   }
+   @FXML
+ public void swichToScene2 (ActionEvent event) throws IOException {
+    Parent root = FXMLLoader.load(getClass().getResource("Sample2.fxml"));
+    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+   }
+   @FXML
+ public void swichToScene3 (ActionEvent event) throws IOException {
+    Parent root = FXMLLoader.load(getClass().getResource("Sample3.fxml"));
+    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+ }
+   @FXML
+   public void printToConsole (ActionEvent event) throws IOException {
+      String one = tittel.getText();
+      System.out.println(one);
+   }
+}
